@@ -1,0 +1,19 @@
+192.168.3.141
+255.255.255.0
+192.168.3.1
+144.162.218.16.240.25
+122.222.157.190
+8082
+11
+120
+0
+
+#IP Address
+#Subnet MASK
+#Gateway
+#mac address 90.A2.DA.10.EF.FB
+#SERVER Address
+#SERVER Port Number
+#POWER PLANT NUMBE
+#SEND Interbal Time nS
+#TMP/IR SENSOR STATUS

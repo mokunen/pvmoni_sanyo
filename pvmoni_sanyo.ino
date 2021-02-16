@@ -694,9 +694,7 @@ void loop() {
 			{
 				httpConnectionFailCounter = 0;
 			}
-
 			Serial.println(F("Connected!"));
-
 			// Send HTTP request
 			client.println(F("POST /pv_moni_sanyo.py HTTP/1.0"));
 			client.println(F("User-Agent: Arduino/1.0"));

@@ -1,7 +1,7 @@
 
-// Tabuchi Pwcon Monitor
-// 2020/12/06
-// 2021/01/11 Addition of error handling for http request processing
+// SANYO DENKI Power Conditioner Monitor
+// 2021/2/16
+// 
 
 
 //#include <EthernetServer.h>
@@ -9,7 +9,6 @@
 #include <MsTimer2.h>
 #include <SD.h>
 #include "sd_read_write.h"          //SDReadWriteの読み込み
-//#include <SoftwareSerial.h>
 #include <avr/wdt.h>
 
 #include <ArduinoJson.h>
@@ -31,30 +30,8 @@
 
 
 //INPUT/OUTPUT PIN Configration
-#define PIN_4FLOOR_ELEVATOR_RLY 49
-#define PIN_5FLOOR_ELEVATOR_RLY 48
-#define PIN_6FLOOR_ELEVATOR_RLY 47
-#define PIN_NONFLOOR_ELEVATOR_RLY 46
-#define PIN_BARCODE_OK_LED 31
-#define PIN_BARCODE_NG_LED 30
-#define PIN_ROOMKEY_SOL 37
-#define PIN_ROOMKEY_SOL2 36
-#define PIN_ROOMKEY_RSW 22
-#define PIN_DUMMY_001 25
-#define PIN_ROOMKEY_KAIJYOO 24
-#define PIN_ROOMKEY_SEJYO 23
-#define PIN_SWITCH_INPUT 22
+#
 #define PIN_STATUS_LED 13
-#define PIN_MAGNET_KEY 37         //kashiwabara
-#define PIN_DOORSW_INPUT 24       //kashiwabara door open switch
-#define PIN_AUTODOOR_KEY 37         //kashiwabara
-#define PIN_PET_DOG   29        //kashiwabara 2019/9/30
-
-#define PIN_DI0 54
-#define PIN_DI1 55
-#define PIN_DI2 56
-#define PIN_DI3 57
-
 
 SDReadWrite configFile("\r\n");             //SDReadWriteのインスタンスを生成（改行コードを引数に指定）
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xF0, 0x0D };    //インサーネットMACアドレスデフォル値
@@ -495,38 +472,7 @@ void setup() {
 	pinMode(12, OUTPUT);
 	digitalWrite(12, LOW);
 
-	pinMode(PIN_ROOMKEY_RSW, INPUT);
-	pinMode(PIN_ROOMKEY_KAIJYOO, INPUT);
-	pinMode(PIN_ROOMKEY_SEJYO, INPUT);
-	pinMode(PIN_DUMMY_001, INPUT);
-
-	pinMode(PIN_DI0, INPUT);
-	pinMode(PIN_DI1, INPUT);
-	pinMode(PIN_DI2, INPUT);
-	pinMode(PIN_DI3, INPUT);
-
-	pinMode(PIN_4FLOOR_ELEVATOR_RLY, OUTPUT);
-	pinMode(PIN_5FLOOR_ELEVATOR_RLY, OUTPUT);
-	pinMode(PIN_6FLOOR_ELEVATOR_RLY, OUTPUT);
-	pinMode(PIN_NONFLOOR_ELEVATOR_RLY, OUTPUT);
-
-	pinMode(PIN_BARCODE_OK_LED, OUTPUT);
-	pinMode(PIN_BARCODE_NG_LED, OUTPUT);
-	pinMode(PIN_ROOMKEY_SOL, OUTPUT);
-	digitalWrite(PIN_ROOMKEY_SOL, LOW);
-	pinMode(PIN_ROOMKEY_SOL2, OUTPUT);
-	digitalWrite(PIN_ROOMKEY_SOL2, LOW);
-	digitalWrite(PIN_4FLOOR_ELEVATOR_RLY, LOW);
-	digitalWrite(PIN_5FLOOR_ELEVATOR_RLY, LOW);
-	digitalWrite(PIN_6FLOOR_ELEVATOR_RLY, LOW);
-	digitalWrite(PIN_NONFLOOR_ELEVATOR_RLY, LOW);
-	digitalWrite(PIN_BARCODE_OK_LED, LOW);
-	digitalWrite(PIN_BARCODE_NG_LED, LOW);
-	pinMode(PIN_PET_DOG, INPUT);
-	//digitalWrite(PIN_PET_DOG,HIGH);
-
-
-
+	
 	Serial.begin(115200);        //Monitor Serial
 	while (!Serial);
 	Serial1.begin(19200);        //pwcon Serial

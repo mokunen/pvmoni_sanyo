@@ -27,6 +27,7 @@
 #define POWER_PLANT_NUMBER  6
 #define INTERBAL_TIME  7
 #define SENSOR_STATUS 8
+#define TOTAL_PWCON_UNIT 9
 
 
 //INPUT/OUTPUT PIN Configration
@@ -166,7 +167,7 @@ int keyMode = 1;                    //Elevator MODE=1:Room MODE=2:SW MODE=3
 const int chipSelect = 4;           //SD CARD Chipselect Pin Config
 int8_t httpFlag = 0;
 int16_t _sendount = 0;
-int8_t totalPwconNum = 6;
+int8_t totalPwconNum = 0;
 int16_t timerCounter = 0;
 int16_t intervalTimer = 120;        //120S
 int16_t powerPlantNumber = 0;
@@ -599,7 +600,10 @@ void setup() {
 		debug_print("POWER PLANT NUMBER:", powerPlantNumber);
 		sensorStatus = configArry[SENSOR_STATUS].toInt(); //SERVER PORT Number
 		debug_print("SENSOR_STATU:", sensorStatus);
-
+		totalPwconNum = configArry[TOTAL_PWCON_UNIT].toInt(); //SERVER PORT Number
+		debug_print("TOTAL_PWCON_UNIT:", totalPwconNum);
+		
+///
 	}
 
 

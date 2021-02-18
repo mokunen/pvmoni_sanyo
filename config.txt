@@ -2,11 +2,12 @@
 255.255.255.0
 192.168.3.1
 144.162.218.16.240.25
-122.222.157.190
-8082
-11
+52.187.104.107
+80
+5
 120
 0
+6
 
 #IP Address
 #Subnet MASK
@@ -17,3 +18,4 @@
 #POWER PLANT NUMBE
 #SEND Interbal Time nS
 #TMP/IR SENSOR STATUS
+#Pwcon Number of units
